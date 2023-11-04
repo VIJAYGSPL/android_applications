@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cardview_dark_background"
+    app:cardBackgroundColor="@color/teal_700"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="5dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/teal_700"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="392dp"
+            android:layout_height="150dp"
+            android:background="#98afc7"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+
+            <ImageView
+                android:id="@+id/img_view"
+                android:layout_width="57dp"
+                android:layout_height="133dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="107dp"
+                android:layout_height="34dp"
+                android:text="Status:SUCCESS"
+                app:layout_constraintBottom_toTopOf="@id/meeza"
+                app:layout_constraintStart_toEndOf="@+id/img_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="67dp"
+                tools:layout_editor_absoluteY="3dp" />
+
+            <ImageView
+                android:id="@+id/rightmark"
+                android:layout_width="38dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@id/status"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:drawable/checkbox_on_background"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/date_time"
+                android:layout_width="167dp"
+                android:layout_height="27dp"
+                android:text="28/03/22             15:44 "
+                app:layout_constraintBottom_toTopOf="@id/txn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rightmark"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="230dp"
+                tools:layout_editor_absoluteY="5dp" />
+
+            <TextView
+                android:id="@+id/meeza"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:text="Meeza digital receive(p)"
+                app:layout_constraintBottom_toTopOf="@id/egp"
+                app:layout_constraintEnd_toStartOf="@+id/txn"
+                app:layout_constraintStart_toEndOf="@+id/img_view"
+                app:layout_constraintTop_toBottomOf="@id/status"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/txn"
+                android:layout_width="117dp"
+                android:layout_height="35dp"
+                android:text="Txn Id:6538754"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_arrow"
+                app:layout_constraintStart_toEndOf="@id/meeza"
+                app:layout_constraintTop_toBottomOf="@id/date_time"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="264dp"
+                tools:layout_editor_absoluteY="53dp" />
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="28dp"
+                android:layout_height="26dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/egp"
+                android:layout_width="131dp"
+                android:layout_height="33dp"
+                android:text="EGP:10.00"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_view"
+                app:layout_constraintTop_toBottomOf="@id/meeza"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="68dp"
+                tools:layout_editor_absoluteY="101dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
