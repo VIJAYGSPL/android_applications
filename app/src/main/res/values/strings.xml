@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MultiPane</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="Customers">
+        <item>Customer 1</item>
+        <item>Customer 2</item>
+        <item>Customer 3</item>
+        <item>Customer 4</item>
+        <item>Customer 5</item>
+        <item>Customer 6</item>
+        <item>Customer 7</item>
+        <item>Customer 8</item>
+        <item>Customer 9</item>
+        <item>Customer 10</item>
+        <item>Customer 11</item>
+        <item>Customer 12</item>
+        <item>Customer 13</item>
+        <item>Customer 14</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
