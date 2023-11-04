@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigationgraph"
+    app:startDestination="@id/frag1">
+    <fragment
+        android:id="@+id/frag1"
+        android:name="com.example.navigation.navigationfrag.First_fragment"
+        android:label="Fragment 1"
+        tools:layout="@layout/fragment_first_fragment">
+        <action
+            android:id="@+id/fragment1to2"
+            app:destination="@+id/frag2"
+            app:popUpTo="@id/frag2"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/frag2"
+        android:name="com.example.navigation.navigationfrag.Second_fragment"
+        android:label="Fragment 2"
+        tools:layout="@layout/fragment_second_fragment">
+        <action
+            android:id="@+id/fragment2to3"
+            app:destination="@+id/frag3"
+            app:popUpTo="@id/frag3"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/frag3"
+        android:name="com.example.navigation.navigationfrag.Third_fragment"
+        android:label="Fragment 3"
+        tools:layout="@layout/fragment_third_fragment">
+        <action
+            android:id="@+id/fragment3to4"
+            app:destination="@+id/frag4"
+            app:popUpTo="@id/frag4"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/frag4"
+        android:name="com.example.navigation.navigationfrag.Fourth_fragment"
+        android:label="Fragment 4"
+        tools:layout="@layout/fragment_fourth_fragment">
+        <action
+            android:id="@+id/fragment4to5"
+            app:destination="@+id/frag5"
+            app:popUpTo="@id/frag5"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/frag5"
+        android:name="com.example.navigation.navigationfrag.Fifth_fragment"
+        android:label="Fragment 5"
+        tools:layout="@layout/fragment_fifth_fragment">
+    <action
+        android:id="@+id/fragment5to1"
+        app:destination="@+id/frag1"
+        app:popUpTo="@id/frag1"
+        app:popUpToInclusive="true"/>
+    </fragment>
+
+</navigation>
