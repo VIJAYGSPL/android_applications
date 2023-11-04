@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="100dp"/>
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:ems="10"/>
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickAddDetails"
+        android:layout_marginLeft="100dp"
+        android:text="Add User"/>
+
+    <Button
+        android:id="@+id/btnRetrieve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickShowDetails"
+        android:layout_marginLeft="100dp"
+        android:text="Show Users"/>
+    <TextView
+        android:id="@+id/res"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:clickable="false"
+        android:ems="10"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090"/>
+
+
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red" />
+        <RadioButton android:id="@+id/radio_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blue" />
+
+    </RadioGroup>
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090"/>
+
+    <CheckBox android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="check it out" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090"/>
+
+
+    <RatingBar
+        android:id="@+id/ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="3"
+        android:stepSize="1.0"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090"/>
+
+    <Switch
+        android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Is Xamarin.Android great?"
+        android:textOff="NO"
+        android:textOn="YES" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dip"
+        android:background="#FF909090"/>
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="@color/teal_200"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"/>
+
+
+
+</LinearLayout>
