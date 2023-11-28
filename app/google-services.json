@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "722589140648",
+    "project_id": "fir-example-185da",
+    "storage_bucket": "fir-example-185da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722589140648:android:95dd428a1f1c5c1bab649d",
+        "android_client_info": {
+          "package_name": "com.example.vijay.kotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEnBhEPQe1iWsqEzkQsTgvKNrFvOBQbcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

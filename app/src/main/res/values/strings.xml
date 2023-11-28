@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Kotlin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_fragment">Hello Home Fragment</string>
+    <string name="message_fragment">Hello Message fragment</string>
+    <string name="settings_fragment">Hello Settings fragment</string>
+    <string name="default_web_client_id">722589140648-97bvq2pnfq2lq58savfeqgbk4q9a8d4f.apps.googleusercontent.com</string>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@color/material_dynamic_neutral95"
+        tools:context=".PhoneNumActivity">
+
+        <TextView
+            android:id="@+id/text_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="PhoneNumber Authentication"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <!-- Phone authentication fields -->
+        <LinearLayout
+            android:id="@+id/phoneAuthFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_header"
+            android:layout_marginTop="150dp"
+            android:orientation="vertical">
+
+            <!-- Phone number field -->
+            <EditText
+                android:id="@+id/fieldPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Phone Number" />
+
+            <!-- Verification code field -->
+            <EditText
+                android:id="@+id/fieldVerificationCode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="50dp"
+                android:hint="Verification Code" />
+
+            <!-- Buttons for phone authentication -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/buttonStartVerification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Start Verification" />
+
+                <Button
+                    android:id="@+id/buttonVerifyPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Verify Phone" />
+
+                <Button
+                    android:id="@+id/buttonResend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Resend Code" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Signed-in buttons -->
+        <LinearLayout
+            android:id="@+id/signedInButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/signOutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Out" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>
