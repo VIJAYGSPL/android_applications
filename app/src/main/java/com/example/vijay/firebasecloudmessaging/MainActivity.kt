@@ -2,28 +2,22 @@ package com.example.vijay.firebasecloudmessaging
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import java.io.IOException
+import android.util.Log
+import com.google.firebase.messaging.FirebaseMessaging
+
 
 class MainActivity : AppCompatActivity() {
-    private val senderID = "YOUR_SENDER_ID"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        getToken()
+
+        FirebaseMessaging.getInstance().token.addOnSuccessListener { token ->
+            Log.d("FCM Token", token)
+        }.addOnFailureListener { failure ->
+            Log.e("FCM Token", "Failed to get FCM token: $failure")
+        }
     }
-//    private fun getToken() {
-//
-//        Thread(Runnable {
-//            try {
-//
-//                val newToken = FirebaseInstanceId.getInstance()
-//                    .getToken(senderID, "FCM")
-//                println("Token --> $newToken")
-//
-//            } catch (e: IOException) {
-//                e.printStackTrace()
-//            }
-//        }).start()
-//    }
+
 
 }
