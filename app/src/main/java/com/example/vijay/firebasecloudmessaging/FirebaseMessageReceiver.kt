@@ -1,59 +1,99 @@
 package com.example.vijay.firebasecloudmessaging
 
-import android.Manifest
 import android.R
 import android.annotation.SuppressLint
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.pm.PackageManager
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationManagerCompat
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.media.RingtoneManager
+import android.os.Build
+import android.util.Log
+import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import java.io.IOException
+import java.net.URL
+
 
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
-class FirebaseMessageReceiver : FirebaseMessagingService() {
+class FirebaseMessageReceiver : FirebaseMessagingService(){
 
 
-    private val TAG = "FirebaseMessagingService"
+    private val tag = "FirebaseMessagingService"
+
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        println("$tag token --> $token")
+    }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
-        val CHANNEL_ID = "HEADS_UP_NOTIFICATION"
-        val notificationChannel = NotificationChannel(
-            CHANNEL_ID,
-            "Heads Up Notification",
-            NotificationManager.IMPORTANCE_HIGH
+        try {
+
+            if (remoteMessage.notification != null) {
+                showNotification(remoteMessage.notification?.title, remoteMessage.notification?.body)
+            } else {
+                showNotification(remoteMessage.data["title"], remoteMessage.data["message"])
+            }
+
+        } catch (e: Exception) {
+            println("$tag error -->${e.localizedMessage}")
+        }
+    }
+
+    private fun showNotification(
+        title: String?,
+        body: String?
+    ) {
+        val intent = Intent()
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, intent,
+            PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
         )
 
+        val channelId = "channelId"
+        val channelName = "channel_Name"
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(notificationChannel)
 
-        val notificationBuilder = Notification.Builder(this, CHANNEL_ID)
-            .setContentTitle(remoteMessage.notification?.title)
-            .setContentText(remoteMessage.notification?.body)
-            .setSmallIcon(R.drawable.sym_def_app_icon)
-            .setAutoCancel(true)
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.POST_NOTIFICATIONS
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
+        // Since android Oreo notification channel is needed.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            setupNotificationChannels(channelId, channelName, notificationManager)
         }
-        NotificationManagerCompat.from(this).notify(1, notificationBuilder.build())
-        super.onMessageReceived(remoteMessage)
 
+        val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+        val notificationBuilder = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.mipmap.sym_def_app_icon)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setAutoCancel(true)
+            .setSound(soundUri)
+            .setContentIntent(pendingIntent)
+
+        notificationManager.notify(0, notificationBuilder.build())
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private fun setupNotificationChannels(
+        channelId: String,
+        channelName: String,
+        notificationManager: NotificationManager
+    ) {
+
+        val channel =
+            NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW)
+        channel.enableLights(true)
+        channel.lightColor = Color.GREEN
+        channel.enableVibration(true)
+        notificationManager.createNotificationChannel(channel)
     }
 }
