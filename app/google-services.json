@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "482518970608",
+    "project_id": "admobexample-8f0e7",
+    "storage_bucket": "admobexample-8f0e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482518970608:android:eb1c129d0f9d9a7fda1235",
+        "android_client_info": {
+          "package_name": "com.example.vijay.admobexample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRty6-lE_weDMDqjemZRS3ZGnjmn0-cxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
